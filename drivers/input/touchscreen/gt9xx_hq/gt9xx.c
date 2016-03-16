@@ -1207,9 +1207,9 @@ static void report_gesture(struct goodix_ts_data *ts )
 //	u8 doze_buf[3] = {0x81, 0x4B};
 //	if(!proximity_open_flag)
 //	{
-		input_report_key(ts->input_dev, KEY_ENTER, 1);
+		input_report_key(ts->input_dev, KEY_WAKEUP, 1);
 		input_sync(ts->input_dev);
-		input_report_key(ts->input_dev, KEY_ENTER, 0);
+		input_report_key(ts->input_dev, KEY_WAKEUP, 0);
 		input_sync(ts->input_dev);
 //	}
 //	else
@@ -2045,7 +2045,7 @@ static s8 gtp_request_input_dev(struct goodix_ts_data *ts)
 
 
 #if GTP_GESTURE_WAKEUP
-	input_set_capability(ts->input_dev, EV_KEY, KEY_ENTER);
+	input_set_capability(ts->input_dev, EV_KEY, KEY_WAKEUP);
 #endif
 
 #if GTP_CHANGE_X2Y
