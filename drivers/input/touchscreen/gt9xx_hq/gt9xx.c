@@ -1204,9 +1204,9 @@ static s8 gtp_enter_doze(struct goodix_ts_data *ts)
 
 static void report_gesture(struct goodix_ts_data *ts )
 {
-	input_report_key(ts->input_dev, KEY_ENTER, 1);
+	input_report_key(ts->input_dev, KEY_WAKEUP, 1);
 	input_sync(ts->input_dev);
-	input_report_key(ts->input_dev, KEY_ENTER, 0);
+	input_report_key(ts->input_dev, KEY_WAKEUP, 0);
 	input_sync(ts->input_dev);
 }
 #endif
@@ -2035,7 +2035,7 @@ static s8 gtp_request_input_dev(struct goodix_ts_data *ts)
 
 
 #if GTP_GESTURE_WAKEUP
-	input_set_capability(ts->input_dev, EV_KEY, KEY_ENTER);
+	input_set_capability(ts->input_dev, EV_KEY, KEY_WAKEUP);
 #endif
 
 #if GTP_CHANGE_X2Y
