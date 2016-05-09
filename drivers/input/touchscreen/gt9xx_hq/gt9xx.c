@@ -663,6 +663,9 @@ static void goodix_ts_work_func(struct work_struct *work)
 #if GTP_GESTURE_WAKEUP
 	if (DOZE_ENABLED == doze_status)
 	{
+		GTP_INFO("TOUCH DETECTED WHILE DOZE ENABLED");
+		GTP_DEBUG("TOUCH DETECTED WHILE DOZE ENABLED");
+		GTP_ERROR("TOUCH DETECTED WHILE DOZE ENABLED");
 		ret = gtp_i2c_read(i2c_connect_client, doze_buf, 3);
 		GTP_DEBUG("0x814B = 0x%02X", doze_buf[2]);
 		if (ret > 0)
